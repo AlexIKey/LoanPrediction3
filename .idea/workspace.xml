@@ -2,6 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b3118ca-4ad4-4949-b175-9a9015732463" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/make_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/build_features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/predict_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/train_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/visualization/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/visualization/visualize.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" afterDir="false" />
     </list>
@@ -23,12 +33,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1_preprocessing.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="1_preprocessing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
                 <element signature="e#89#108#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataPrepare.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="woecalc.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/features/woecalc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="242" column="11" lean-forward="true" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -40,6 +71,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -55,6 +87,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/features/woe.py" />
         <option value="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" />
       </list>
     </option>
@@ -73,7 +106,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -84,17 +116,24 @@
             <path>
               <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
               <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
-              <item name="notebooks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../RedHat/1_preprocessing.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -199,7 +238,21 @@
       <option name="project" value="LOCAL" />
       <updated>1522520156789</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add xgboost and lightgbm">
+      <created>1522596902462</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1522596902462</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add xgboost and lightgbm">
+      <created>1522596928705</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1522596928705</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -215,12 +268,12 @@
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1473907" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1473907" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50070524" side_tool="true" weight="0.3292683" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992948" weight="0.3292683" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992948" visible="true" weight="0.3292683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3292683" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -243,7 +296,8 @@
     <MESSAGE value="save divided train and set frames" />
     <MESSAGE value="save LR&amp;RF Classification" />
     <MESSAGE value="add predict.proba" />
-    <option name="LAST_COMMIT_MESSAGE" value="add predict.proba" />
+    <MESSAGE value="add xgboost and lightgbm" />
+    <option name="LAST_COMMIT_MESSAGE" value="add xgboost and lightgbm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -612,18 +666,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="e#89#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/features/woe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/features/woecalc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="242" column="11" lean-forward="true" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
