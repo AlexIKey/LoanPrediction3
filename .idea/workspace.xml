@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b3118ca-4ad4-4949-b175-9a9015732463" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/make_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/build_features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/predict_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/train_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/visualization/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/visualization/visualize.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/.ipynb_checkpoints/DataPrepare-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/.ipynb_checkpoints/DataPrepare-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/train_model.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,22 +36,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataPrepare.ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="46" />
+      <file leaf-file-name="woecalc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/features/woecalc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="386" column="26" selection-start-line="385" selection-end-line="386" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="woecalc.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/features/woecalc.py">
+      <file leaf-file-name="train_model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/train_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="242" column="11" lean-forward="true" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="11" />
+            <state relative-caret-position="306">
+              <caret line="60" column="54" selection-start-line="54" selection-start-column="41" selection-end-line="60" selection-end-column="54" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ensemble_models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/ensemble_models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+              <folding>
+                <element signature="e#32#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,6 +86,7 @@
     <findStrings>
       <find>df</find>
       <find>dfgsdfgsdfgsdfg</find>
+      <find>..</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -89,6 +97,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/features/woe.py" />
         <option value="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" />
+        <option value="$PROJECT_DIR$/src/models/train_model.py" />
+        <option value="$PROJECT_DIR$/src/models/ensemble_models.py" />
       </list>
     </option>
   </component>
@@ -106,6 +116,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,13 +133,12 @@
               <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
               <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -147,7 +157,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jupyter Notebook.LoanPrediction3">
+  <component name="RunManager" selected="Python.ensemble_models">
     <configuration name="code" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LoanPrediction3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -161,6 +171,42 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="/code.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="ensemble_models" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LoanPrediction3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/models/ensemble_models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="train_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LoanPrediction3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/models/train_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,9 +231,13 @@
     <list>
       <item itemvalue="Jupyter Notebook.LoanPrediction3" />
       <item itemvalue="Python.code" />
+      <item itemvalue="Python.train_model" />
+      <item itemvalue="Python.ensemble_models" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ensemble_models" />
+        <item itemvalue="Python.train_model" />
         <item itemvalue="Python.code" />
       </list>
     </recent_temporary>
@@ -252,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522596928705</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add src">
+      <created>1522690586307</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1522690586307</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -268,12 +325,12 @@
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1473907" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1473907" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50070524" side_tool="true" weight="0.3292683" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992948" visible="true" weight="0.3292683" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3292683" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.3292683" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4992948" visible="true" weight="0.3292683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3292683" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -284,7 +341,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -297,16 +354,11 @@
     <MESSAGE value="save LR&amp;RF Classification" />
     <MESSAGE value="add predict.proba" />
     <MESSAGE value="add xgboost and lightgbm" />
-    <option name="LAST_COMMIT_MESSAGE" value="add xgboost and lightgbm" />
+    <MESSAGE value="add src" />
+    <option name="LAST_COMMIT_MESSAGE" value="add src" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/tokenize.py</url>
-          <line>454</line>
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -314,40 +366,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#89#108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -659,10 +681,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/tokenize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="451" selection-start-line="451" selection-end-line="451" />
+    <entry file="file://$PROJECT_DIR$/src/features/woe.py" />
+    <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="58" />
         </state>
       </provider>
     </entry>
@@ -675,32 +698,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/features/woe.py">
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/tokenize.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        <state relative-caret-position="139">
+          <caret line="454" selection-start-line="454" selection-end-line="454" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/model_selection/_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/features/woecalc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="386" column="26" selection-start-line="385" selection-end-line="386" selection-end-column="26" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="46" />
+    <entry file="file://$PROJECT_DIR$/src/models/train_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="60" column="54" selection-start-line="54" selection-start-column="41" selection-end-line="60" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/features/woecalc.py">
+    <entry file="file://$PROJECT_DIR$/src/models/ensemble_models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="242" column="11" lean-forward="true" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="11" />
+        <state relative-caret-position="294">
+          <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#32#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
