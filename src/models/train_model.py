@@ -49,13 +49,18 @@ def get_features_and_labels(frame, seed=None):
     return X_train, X_test, y_train, y_test
 
 def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
+    """
+        Run multiple times with different classifiers to get an idea of the
+        relative performance of each configuration.
+
+        Returns a sequence of tuples containing:
+            (title, precision, recall)
+        for each learner.
+    """
+
     # Spot Check Algorithms
 
     from sklearn import model_selection
-    from sklearn.metrics import classification_report
-    from sklearn.metrics import confusion_matrix
-    from sklearn.metrics import accuracy_score
-    from sklearn.linear_model import LogisticRegression
     from sklearn.tree import DecisionTreeClassifier
     from sklearn.neighbors import KNeighborsClassifier
     from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
@@ -66,9 +71,16 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
     from xgboost import XGBClassifier
     from lightgbm import LGBMClassifier
 
+
+    # We will calculate the P-R curve for each classifier
+    from sklearn.metrics import roc_auc_score, roc_curve
+
+
+
+
     scoring = 'roc_auc'
     models = []
-    models.append(('LR', LogisticRegression()))
+    models.append(('LR', LogisticRegression(random_state=seed)))
     models.append(('LDA', LinearDiscriminantAnalysis()))
     models.append(('KNN', KNeighborsClassifier()))
     models.append(('CART', DecisionTreeClassifier()))
@@ -77,176 +89,33 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
     models.append(('LR', LogisticRegression()))
     models.append(('RF', RandomForestClassifier()))
     models.append(('XGB', XGBClassifier()))
-    # models.append(('LGB', LGBMClassifier()))
+    models.append(('LGB', LGBMClassifier(verbose=-1)))
 
     # evaluate each model in turn
     results = []
     names = []
     for name, model in models:
-        kfold = model_selection.KFold(n_splits=10, random_state=seed)
+        #kfold = model_selection.KFold(n_splits=10, random_state=seed)
+        kfold = 10
         cv_results = model_selection.cross_val_score(model, X_train, y_train, cv=kfold, scoring=scoring)
         results.append(cv_results)
         names.append(name)
-        msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
+
+        # Result on testSet
+        # calculate ROC_AUC
+
+        # Fit the classifier
+        model.fit(X_train, y_train)
+        auc_score = roc_auc_score(y_test, model.predict(X_test))
+        # Generate the ROC curve
+        fpr, tpr, threshold = roc_curve(y_test, model.predict(X_test))
+
+        msg = "%s: %s %f (%f) %s: %f " % (name, "ROC_AUC on CV", cv_results.mean(), cv_results.std(),
+                                          "; ROC_AUC on testSet", auc_score)
         print(msg)
-
-
-
-def evaluate_classifier(X_train, X_test, y_train, y_test, seed=None):
-    '''
-    Run multiple times with different classifiers to get an idea of the
-    relative performance of each configuration.
-
-    Returns a sequence of tuples containing:
-        (title, precision, recall)
-    for each learner.
-    '''
-    #print(default_path)
-    from sklearn.model_selection import KFold, StratifiedKFold
-    from sklearn.model_selection import cross_val_score
-
-    # Import some classifiers to test
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.svm import SVC
-    from sklearn.ensemble import RandomForestClassifier
-    from xgboost import XGBClassifier
-    from lightgbm import LGBMClassifier
-
-
-    # We will calculate the P-R curve for each classifier
-    from sklearn.metrics import precision_recall_curve, f1_score, accuracy_score, roc_auc_score, roc_curve, auc
-
-    #
-
-    models = []
-
-
-    scoring = 'roc_auc'
-    # scoring = {'acc': 'accuracy','AUC': 'roc_auc'}
-    # kfold = StratifiedKFold(n_splits=10, random_state=seed)
-
-    # Here we create classifiers with default parameters. These need
-    # to be adjusted to obtain optimal performance on your data set.
-
-    # Test the logistoc regression classifier
-    model = LogisticRegression(random_state=seed)
-    name = 'LR'
-    # Fit the classifier
-    model.fit(X_train, y_train)
-
-    # Cross validation result
-    cv_results = cross_val_score(model, X_train, y_train, cv=10, scoring=scoring)
-
-    # Result on testSet
-    # calculate ROC_AUC
-    auc_score = roc_auc_score(y_test, model.predict(X_test))
-    # Generate the ROC curve
-    fpr, tpr, threshold = roc_curve(y_test, model.predict(X_test))
-
-    msg = "%s: %s %f (%f) %s: %f " % (name, "ROC_AUC on CV", cv_results.mean(), cv_results.std(),
-                                      "; ROC_AUC on testSet", auc_score)
-    print(msg)
-    # Include the score in the title
-    yield 'Logistic Regression (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold
+        # Include the score in the title
+        yield name+' (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold
     # #####################################################################################
-
-    # Test the LightGBM classifier
-    model = SVC(random_state=seed)
-    name = 'SVM'
-    # Fit the classifier
-    model.fit(X_train, y_train)
-
-    # Cross validation result
-    cv_results = cross_val_score(model, X_train, y_train, cv=10, scoring=scoring)
-    # print(cv_results)
-
-    # Result on testSet
-    # calculate ROC_AUC
-    auc_score = roc_auc_score(y_test, model.predict(X_test))
-    # Generate the ROC curve
-    fpr, tpr, threshold = roc_curve(y_test, model.predict(X_test))
-    msg = "%s: %s %f (%f) %s: %f " % (name, "ROC_AUC on CV", cv_results.mean(), cv_results.std(),
-                                      "; ROC_AUC on testSet", auc_score)
-    print(msg)
-    # Include the score in the title
-    yield 'SVM (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold
-    # #####################################################################################
-
-
-    # Test the Random rForest classifier
-    model = RandomForestClassifier(n_estimators=100, random_state = seed )
-
-    name = 'RF'
-    # Fit the classifier
-    model.fit(X_train, y_train)
-
-    # Cross validation result
-    cv_results = cross_val_score(model, X_train, y_train, cv=10, scoring=scoring)
-    # print(cv_results)
-
-    # Result on testSet
-    # calculate ROC_AUC
-    auc_score = roc_auc_score(y_test, model.predict(X_test))
-    # Generate the ROC curve
-    fpr, tpr, threshold = roc_curve(y_test, model.predict(X_test))
-
-    msg = "%s: %s %f (%f) %s: %f " % (name, "ROC_AUC on CV", cv_results.mean(), cv_results.std(),
-                                      "; ROC_AUC on testSet", auc_score)
-    print(msg)
-    # Include the score in the title
-    yield 'Random Forest (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold
-    # #####################################################################################
-
-    # Test the XGBoost classifier
-    model = XGBClassifier(seed=seed)
-
-    name = 'XGB'
-    # Fit the classifier
-    model.fit(X_train, y_train)
-
-    # Cross validation result
-    cv_results = cross_val_score(model, X_train, y_train, cv=10, scoring=scoring)
-    # print(cv_results)
-
-    # Result on testSet
-    # calculate ROC_AUC
-    auc_score = roc_auc_score(y_test, model.predict(X_test))
-    # Generate the ROC curve
-    fpr, tpr, threshold = roc_curve(y_test, model.predict(X_test))
-
-    msg = "%s: %s %f (%f) %s: %f " % (name, "ROC_AUC on CV", cv_results.mean(), cv_results.std(),
-                                      "; ROC_AUC on testSet", auc_score)
-    print(msg)
-    # Include the score in the title
-    yield 'XGBoost (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold
-    # #####################################################################################
-
-
-
-
-    # Test the LightGBM classifier
-    model = LGBMClassifier(verbose=False, random_state=seed)
-    name = 'LGB'
-    # Fit the classifier
-    model.fit(X_train, y_train)
-
-    # Cross validation result
-    cv_results = cross_val_score(model, X_train, y_train, cv=10, scoring=scoring)
-    # print(cv_results)
-
-    # Result on testSet
-    # calculate ROC_AUC
-    auc_score = roc_auc_score(y_test, model.predict(X_test))
-    # Generate the ROC curve
-    fpr, tpr, threshold = roc_curve(y_test, model.predict(X_test))
-    msg = "%s: %s %f (%f) %s: %f " % (name, "ROC_AUC on CV", cv_results.mean(), cv_results.std(),
-                                      "; ROC_AUC on testSet", auc_score)
-    print(msg)
-    # Include the score in the title
-    yield 'LightGBM (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold
-    # #####################################################################################
-
-
     # =====================================================================
 
 
@@ -271,7 +140,7 @@ def plot(results):
     plt.title('ROC Curves on Test Set')
     plt.xlabel('fpr')
     plt.ylabel('tpr')
-    plt.legend(loc='lower left')
+    plt.legend(loc='lower right')
 
     # Let matplotlib improve the layout
     plt.tight_layout()
@@ -314,8 +183,8 @@ if __name__ == "__main__":
     # Evaluate multiple classifiers on the data
     print("Evaluating classifiers")
 
-    eval_classifiers(trainSet, testSet, y_train, y_test, seed=seed)
-    results = list(evaluate_classifier(trainSet, testSet, y_train, y_test, seed=seed))
+
+    results = list(eval_classifiers(trainSet, testSet, y_train, y_test, seed=seed))
 
     # Display the results
     print("Plotting the results")
