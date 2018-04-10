@@ -3,8 +3,9 @@ def get_features_and_labels(frame, seed=None):
     Transforms and scales the input data and returns numpy arrays for
     training and testing inputs and targets.
     seed = int, RandomState instance or None, optional (default=None)
+    !!!Use the last column as the target value!!!
     '''
-
+    import numpy as np
     # Replace missing values with 0.0, or we can use
     # scikit-learn to calculate missing values (below)
     # frame[frame.isnull()] = 0.0
@@ -74,13 +75,12 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
 
     # We will calculate the P-R curve for each classifier
     from sklearn.metrics import roc_auc_score, roc_curve
-
+    from sklearn.model_selection import KFold, StratifiedKFold
 
 
 
     scoring = 'roc_auc'
     models = []
-    models.append(('LR', LogisticRegression(random_state=seed)))
     models.append(('LDA', LinearDiscriminantAnalysis()))
     models.append(('KNN', KNeighborsClassifier()))
     models.append(('CART', DecisionTreeClassifier()))
@@ -91,11 +91,13 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
     models.append(('XGB', XGBClassifier()))
     models.append(('LGB', LGBMClassifier(verbose=-1)))
 
+
     # evaluate each model in turn
     results = []
     names = []
     for name, model in models:
         #kfold = model_selection.KFold(n_splits=10, random_state=seed)
+        #kfold = StratifiedKFold(n_splits=10, random_state=seed, shuffle=True)
         kfold = 10
         cv_results = model_selection.cross_val_score(model, X_train, y_train, cv=kfold, scoring=scoring)
         results.append(cv_results)
@@ -114,7 +116,7 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
                                           "; ROC_AUC on testSet", auc_score)
         print(msg)
         # Include the score in the title
-        yield name+' (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold
+        yield name+' (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold, auc_score
     # #####################################################################################
     # =====================================================================
 
@@ -134,7 +136,7 @@ def plot(results):
     fig = plt.figure(figsize=(6, 6))
     fig.canvas.set_window_title('Classifying data')
 
-    for label, fpr, tpr, _ in results:
+    for label, fpr, tpr, _, _ in results:
         plt.plot(fpr, tpr, label=label)
 
     plt.title('ROC Curves on Test Set')
@@ -167,24 +169,36 @@ def plot(results):
     # Closing the figure allows matplotlib to release the memory used.
     plt.close()
 
+
+
+# def_SequentialFeatureSelect(clf,):
+#     from mlxtend.feature_selection import SequentialFeatureSelector
+#     selector = SequentialFeatureSelector(clf, scoring='roc_auc', verbose=2,
+#                                                             k_features=3, forward=False, n_jobs=-1)
+#
+#     selector.fit(x_data_scaled, y_data)
+
 if __name__ == "__main__":
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
+
     # -----------------------------------------------------------
     import os
     mingw_path = 'C:\\Program Files\\Git\\mingw64\\bin'
     os.environ['PATH'] = mingw_path + ';' + os.environ['PATH']
     # -----------------------------------------------------------
-    seed = 1221
+    seed = 1234567
     data_tmp = pd.read_csv('../../data/processed/train_ready.csv', index_col=0)
+
     trainSet, testSet, y_train, y_test = get_features_and_labels(data_tmp, seed=seed)
 
     # Evaluate multiple classifiers on the data
     print("Evaluating classifiers")
-
-
     results = list(eval_classifiers(trainSet, testSet, y_train, y_test, seed=seed))
+    # indexing results
+    import operator
+    results.sort(key=operator.itemgetter(4), reverse=True)
 
     # Display the results
     print("Plotting the results")
