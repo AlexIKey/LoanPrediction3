@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b3118ca-4ad4-4949-b175-9a9015732463" name="Default" comment="">
+    <list default="true" id="1b3118ca-4ad4-4949-b175-9a9015732463" name="Default" comment="add  DataPrepare_short.ipynb">
+      <change afterPath="$PROJECT_DIR$/notebooks/DataPrepare_short.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/LoanPrediction3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LoanPrediction3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/make_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/make_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/build_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/build_features.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/select_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/select_features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/train_model.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,41 +21,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DataPrepare.ipynb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
+      <file leaf-file-name="DataPrepare_short.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare_short.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
-              <selected id="5" />
+              <selected id="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build_features.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/features/build_features.py">
+      <file leaf-file-name="train_model.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/train_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="173" column="22" selection-start-line="171" selection-end-line="173" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="make_dataset.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/data/make_dataset.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+            <state relative-caret-position="413">
+              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
               <folding>
-                <element signature="e#24#33#0" expanded="true" />
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="select_features.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/features/select_features.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-476">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
             </state>
           </provider>
         </entry>
@@ -86,22 +72,23 @@
       <list>
         <option value="$PROJECT_DIR$/src/features/woe.py" />
         <option value="$PROJECT_DIR$/src/models/ensemble_models.py" />
-        <option value="$PROJECT_DIR$/src/data/make_dataset.py" />
         <option value="$PROJECT_DIR$/src/features/pywoe_example.py" />
         <option value="$PROJECT_DIR$/src/features/rpy2woe.py" />
-        <option value="$PROJECT_DIR$/src/features/build_features.py" />
-        <option value="$PROJECT_DIR$/src/models/train_model.py" />
         <option value="$PROJECT_DIR$/src/visualization/visualize.py" />
         <option value="$PROJECT_DIR$/src/features/select_features.py" />
+        <option value="$PROJECT_DIR$/src/data/make_dataset.py" />
+        <option value="$PROJECT_DIR$/src/features/build_features.py" />
         <option value="$PROJECT_DIR$/notebooks/DataPrepare.ipynb" />
+        <option value="$PROJECT_DIR$/src/models/train_model.py" />
+        <option value="$PROJECT_DIR$/notebooks/DataPrepare_short.ipynb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="19" />
-    <option name="y" value="1" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1444" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -111,12 +98,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
               <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="interim" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="raw" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
@@ -128,39 +133,135 @@
               <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LoanPrediction3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoanPrediction3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="visualization" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../RedHat/1_preprocessing.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Python-projects\LoanPrediction3\notebooks" />
       <recent name="D:\Python-projects\LoanPrediction3\src\models" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/LoanPrediction3.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/notebooks/DataPrepare.ipynb</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/features/select_features.py</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -174,7 +275,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.code">
+  <component name="RunManager" selected="Python.train_model">
     <configuration name="build_features" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LoanPrediction3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -193,7 +294,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="code" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="make_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LoanPrediction3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -201,12 +302,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/data" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="/code.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data/make_dataset.py" />
+      <option name="PARAMETERS" value="&quot;../../data/raw/&quot; &quot;../../data/interim/&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -287,13 +388,13 @@
       <item itemvalue="Python.build_features" />
       <item itemvalue="Python.visualize" />
       <item itemvalue="Python.select_features" />
-      <item itemvalue="Python.code" />
+      <item itemvalue="Python.make_dataset" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.code" />
-        <item itemvalue="Python.select_features" />
         <item itemvalue="Python.train_model" />
+        <item itemvalue="Python.make_dataset" />
+        <item itemvalue="Python.select_features" />
         <item itemvalue="Python.visualize" />
         <item itemvalue="Python.build_features" />
       </list>
@@ -387,7 +488,21 @@
       <option name="project" value="LOCAL" />
       <updated>1523355782513</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add  select rfe">
+      <created>1523468304525</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1523468304526</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add  select rfe again">
+      <created>1523484056294</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1523484056294</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -400,27 +515,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14568081" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14598025" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50070524" side_tool="true" weight="0.3292683" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3290938" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5014104" side_tool="true" weight="0.3292683" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4992948" weight="0.3292683" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3292683" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992948" visible="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49858958" visible="true" weight="0.3292683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3292683" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39972898" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3292683" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14598025" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992948" weight="0.3292683" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39972898" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50070524" side_tool="true" weight="0.3292683" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3292683" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.3292683" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -437,15 +560,22 @@
     <MESSAGE value="add ensemble" />
     <MESSAGE value="add make_dataset module" />
     <MESSAGE value="add mlxtend library" />
-    <option name="LAST_COMMIT_MESSAGE" value="add mlxtend library" />
+    <MESSAGE value="add  select rfe" />
+    <MESSAGE value="add  select rfe again" />
+    <option name="LAST_COMMIT_MESSAGE" value="add  select rfe again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/features/select_features.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/src/data/make_dataset.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/features/build_features.py</url>
+          <line>84</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -455,11 +585,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="34" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb" />
     <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -467,12 +596,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py" />
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb" />
-    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py" />
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb" />
-    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py" />
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb" />
+    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#89#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#89#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#89#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -480,8 +651,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb" />
-    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py" />
+    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#89#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -489,7 +674,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb" />
+    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -497,8 +688,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb" />
-    <entry file="file://$PROJECT_DIR$/../CreditUp Scoring/CreditUp Scoring.ipynb" />
+    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CreditUp Scoring/CreditUp Scoring.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -506,18 +709,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../CreditUp Scoring/CreditUp Scoring.ipynb" />
-    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/tokenize.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/base.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/model_selection/_validation.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/click/_unicodefun.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/_bootlocale.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/locale.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/click/core.py" />
+    <entry file="file://$PROJECT_DIR$/../CreditUp Scoring/CreditUp Scoring.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Credit-Score-master/Credit-Score-master/Credit score.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/tokenize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="454" selection-start-line="454" selection-end-line="454" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/model_selection/_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/click/_unicodefun.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/_bootlocale.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/locale.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="614" selection-start-line="614" selection-end-line="614" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/features/woe1.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/xgboost/__init__.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/xgboost/core.py" />
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/xgboost/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/xgboost/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/ensemble_models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -525,11 +787,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/cross_validation.py" />
-    <entry file="file://$PROJECT_DIR$/src/models/train_model_old.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/pandas/core/generic.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/pandas/core/frame.py" />
-    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py" />
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/cross_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/train_model_old.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="107" column="2" selection-start-line="107" selection-start-column="2" selection-end-line="107" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="1839" selection-start-line="1839" selection-end-line="1839" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="2138" selection-start-line="2138" selection-end-line="2138" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/features/woecalc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -537,12 +822,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/mlxtend/utils/checking.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/mlxtend/plotting/decision_regions.py" />
-    <entry file="file://$PROJECT_DIR$/src/features/pywoe_example.py" />
-    <entry file="file://$PROJECT_DIR$/src/features/rpy2woe.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/pandas/core/indexes/base.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/externals/joblib/_parallel_backends.py" />
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/mlxtend/utils/checking.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/mlxtend/plotting/decision_regions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/features/pywoe_example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/features/rpy2woe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/pandas/core/indexes/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="1753" selection-start-line="1753" selection-end-line="1753" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/sklearn/externals/joblib/_parallel_backends.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="353" column="55" lean-forward="true" selection-start-line="353" selection-start-column="55" selection-end-line="353" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -550,50 +871,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/multiprocessing/pool.py" />
-    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/codecs.py" />
-    <entry file="file://$PROJECT_DIR$/src/visualization/visualize.py">
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/multiprocessing/pool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="139">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/train_model.py">
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="192" lean-forward="true" selection-start-line="192" selection-end-line="192" />
+        <state relative-caret-position="1159">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/features/select_features.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/visualization/visualize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Users/Alex/Anaconda3/envs/datascience/Lib/site-packages/click/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="894" selection-start-line="894" selection-end-line="894" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/features/build_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="173" column="22" selection-start-line="171" selection-end-line="173" selection-end-column="22" />
+        <state relative-caret-position="68">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../RedHat/1_preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#89#108#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data/make_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        <state relative-caret-position="80">
+          <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="45" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/features/select_features.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+    <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare_short.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notebooks/DataPrepare.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
-          <selected id="5" />
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/train_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

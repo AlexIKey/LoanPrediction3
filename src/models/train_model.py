@@ -1,3 +1,7 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
 def get_features_and_labels(frame, seed=None):
     '''
     Transforms and scales the input data and returns numpy arrays for
@@ -5,7 +9,6 @@ def get_features_and_labels(frame, seed=None):
     seed = int, RandomState instance or None, optional (default=None)
     !!!Use the last column as the target value!!!
     '''
-    import numpy as np
     # Replace missing values with 0.0, or we can use
     # scikit-learn to calculate missing values (below)
     # frame[frame.isnull()] = 0.0
@@ -131,6 +134,7 @@ def plot(results):
     All the elements in results will be plotted.
     '''
 
+    #import matplotlib.pyplot as plt
     # Plot the ROC curves
 
     fig = plt.figure(figsize=(6, 6))
@@ -171,17 +175,12 @@ def plot(results):
 
 
 
-# def_SequentialFeatureSelect(clf,):
-#     from mlxtend.feature_selection import SequentialFeatureSelector
-#     selector = SequentialFeatureSelector(clf, scoring='roc_auc', verbose=2,
-#                                                             k_features=3, forward=False, n_jobs=-1)
-#
-#     selector.fit(x_data_scaled, y_data)
+
 
 if __name__ == "__main__":
-    import pandas as pd
-    import numpy as np
-    import matplotlib.pyplot as plt
+    # import pandas as pd
+    # import numpy as np
+    # import matplotlib.pyplot as plt
 
     # -----------------------------------------------------------
     import os
