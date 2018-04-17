@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from scipy import interp
 import matplotlib.pyplot as plt
 
 def get_features_and_labels(frame, seed=None):
@@ -77,7 +78,7 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
 
 
     # We will calculate the P-R curve for each classifier
-    from sklearn.metrics import roc_auc_score, roc_curve
+    from sklearn.metrics import roc_auc_score, roc_curve, auc
     from sklearn.model_selection import KFold, StratifiedKFold
 
 
@@ -88,7 +89,7 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
     models.append(('KNN', KNeighborsClassifier()))
     models.append(('CART', DecisionTreeClassifier()))
     models.append(('NB', GaussianNB()))
-    models.append(('SVM', SVC()))
+    #models.append(('SVM', SVC()))
     models.append(('LR', LogisticRegression()))
     models.append(('RF', RandomForestClassifier()))
     models.append(('XGB', XGBClassifier()))
@@ -96,35 +97,91 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
 
 
     # evaluate each model in turn
-    results = []
+    results_cv = []
+    results_test = []
     names = []
     for name, model in models:
         #kfold = model_selection.KFold(n_splits=10, random_state=seed)
-        #kfold = StratifiedKFold(n_splits=10, random_state=seed, shuffle=True)
-        kfold = 10
-        cv_results = model_selection.cross_val_score(model, X_train, y_train, cv=kfold, scoring=scoring)
-        results.append(cv_results)
-        names.append(name)
+        kfold = StratifiedKFold(n_splits=10, random_state=seed, shuffle=True)
+        # #############################################################################
+        # Classification and ROC analysis
 
+        # Run classifier with cross-validation and plot ROC curves
+        tprs = []
+        aucs = []
+        mean_fpr = np.linspace(0, 1, 100)
+
+        i = 0
+        for train, test in kfold.split(X_train, y_train):
+            probas_ = model.fit(X_train[train], y_train[train]).predict_proba(X_train[test])
+            # Compute ROC curve and area the curve
+            fpr, tpr, thresholds = roc_curve(y_train[test], probas_[:, 1])
+            tprs.append(interp(mean_fpr, fpr, tpr))
+            tprs[-1][0] = 0.0
+            roc_auc = auc(fpr, tpr)
+            aucs.append(roc_auc)
+            plt.plot(fpr, tpr, lw=1, alpha=0.3,
+                     label='ROC fold %d (AUC = %0.2f)' % (i, roc_auc))
+
+            i += 1
+        plt.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',
+                 label='Luck', alpha=.8)
+
+        mean_tpr = np.mean(tprs, axis=0)
+        mean_tpr[-1] = 1.0
+        mean_auc = auc(mean_fpr, mean_tpr)
+        std_auc = np.std(aucs)
+        plt.plot(mean_fpr, mean_tpr, color='b',
+                 label=r'%s Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (name, mean_auc, std_auc),
+                 lw=2, alpha=.8)
+        res_cv = tuple( [r'%s Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (name, mean_auc, std_auc), mean_fpr, mean_tpr, mean_auc] )
+        results_cv.append(res_cv)
+        # yield r'%s Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (name, mean_auc, std_auc), mean_fpr, mean_tpr, mean_auc
+
+        std_tpr = np.std(tprs, axis=0)
+        tprs_upper = np.minimum(mean_tpr + std_tpr, 1)
+        tprs_lower = np.maximum(mean_tpr - std_tpr, 0)
+        plt.fill_between(mean_fpr, tprs_lower, tprs_upper, color='grey', alpha=.2,
+                         label=r'$\pm$ 1 std. dev.')
+
+        plt.xlim([-0.05, 1.05])
+        plt.ylim([-0.05, 1.05])
+        plt.xlabel('False Positive Rate')
+        plt.ylabel('True Positive Rate')
+        plt.title('Receiver operating characteristic example')
+        plt.legend(loc="lower right")
+        plt.show()
+        # ================================================================================================
+
+        #kfold = 10
+        cv_results = model_selection.cross_val_score(model, X_train, y_train, cv=kfold, scoring=scoring)
+        # results.append(cv_results)
+        # names.append(name)
+        #
         # Result on testSet
         # calculate ROC_AUC
-
+        #
         # Fit the classifier
         model.fit(X_train, y_train)
         auc_score = roc_auc_score(y_test, model.predict(X_test))
         # Generate the ROC curve
         fpr, tpr, threshold = roc_curve(y_test, model.predict(X_test))
-
         msg = "%s: %s %f (%f) %s: %f " % (name, "ROC_AUC on CV", cv_results.mean(), cv_results.std(),
-                                          "; ROC_AUC on testSet", auc_score)
+                                           "; ROC_AUC on testSet", auc_score)
         print(msg)
-        # Include the score in the title
-        yield name+' (AUC score={:.3f})'.format(auc_score), fpr, tpr, threshold, auc_score
+        res_test= (name+' (AUC score={:.3f})'.format(auc_score), fpr, tpr, auc_score)
+        results_test.append(res_test)
+        #yield name+' (AUC score={:.3f})'.format(auc_score), fpr, tpr, auc_score
     # #####################################################################################
     # =====================================================================
+    return results_cv, results_test
 
 
-def plot(results):
+
+
+
+
+def plot( title, results,):
     '''
     Create a plot comparing multiple learners.
 
@@ -140,10 +197,10 @@ def plot(results):
     fig = plt.figure(figsize=(6, 6))
     fig.canvas.set_window_title('Classifying data')
 
-    for label, fpr, tpr, _, _ in results:
+    for label, fpr, tpr, _ in results:
         plt.plot(fpr, tpr, label=label)
 
-    plt.title('ROC Curves on Test Set')
+    plt.title(title)
     plt.xlabel('fpr')
     plt.ylabel('tpr')
     plt.legend(loc='lower right')
@@ -194,12 +251,14 @@ if __name__ == "__main__":
 
     # Evaluate multiple classifiers on the data
     print("Evaluating classifiers")
-    results = list(eval_classifiers(trainSet, testSet, y_train, y_test, seed=seed))
+    results_cv, results_test = list(eval_classifiers(trainSet, testSet, y_train, y_test, seed=seed))
     # indexing results
     import operator
-    results.sort(key=operator.itemgetter(4), reverse=True)
-
+    results_cv.sort(key=operator.itemgetter(3), reverse=True)
+    results_test.sort(key=operator.itemgetter(3), reverse=True)
     # Display the results
     print("Plotting the results")
-    plot(results)
+    plot('ROC Curves on CV Set', results_cv)
+    plot('ROC Curves on Test Set', results_test)
+
 
