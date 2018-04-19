@@ -1,6 +1,15 @@
 '''
 Module for selecting features
 '''
+import pandas as pd
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
+from src.models.train_model import get_features_and_labels
+from mlxtend.feature_selection import ExhaustiveFeatureSelector as EFS
+from sklearn.feature_selection import RFE
+
 
 def select_features_efs(data, clf, scoring='accuracy', seed=1234, n_features=5):
     '''
@@ -10,8 +19,7 @@ def select_features_efs(data, clf, scoring='accuracy', seed=1234, n_features=5):
     :param seed: random state
     :return: array of indices for  selected variables
     '''
-    from mlxtend.feature_selection import ExhaustiveFeatureSelector as EFS
-    from src.models.train_model import get_features_and_labels
+
     X_train, X_test, y_train, y_test = get_features_and_labels(data_tmp, seed)
 
 #    X_train, y_train = data.iloc[:, :-1].values, data.iloc[:, -1].values
@@ -48,8 +56,7 @@ def select_features_sfs(data, clf, scoring='accuracy', seed=1234, n_features=5):
     :return: array of indices for  selected variables
     '''
 
-    from src.models.train_model import get_features_and_labels
-    X_train, X_test, y_train, y_test = get_features_and_labels(data_tmp, seed)
+    X_train, X_test, y_train, y_test = get_features_and_labels(data, seed)
 
     from mlxtend.feature_selection import SequentialFeatureSelector as SFS
 
@@ -88,14 +95,11 @@ def select_features_rfe(data, clf, scoring='accuracy', seed=1234, n_features=5):
     :return: array of indices for  selected variables
     '''
 
-    from sklearn.feature_selection import RFE
-    from sklearn.ensemble import RandomForestClassifier
-    #import matplotlib.pyplot as plt
-    from src.models.train_model import get_features_and_labels
-    X_train, X_test, y_train, y_test = get_features_and_labels(data_tmp, seed)
 
-    select = RFE(clf,  n_features_to_select=n_features, n_jobs=-1)
-    #X_train, y_train = data.iloc[:, :-1].values, data.iloc[:, -1].values
+    X_train, X_test, y_train, y_test = get_features_and_labels(data, seed)
+
+    select = RFE(clf,  n_features_to_select=n_features)
+
     select.fit(X_train,
                y_train)
     # визуализируем отобранные признаки :
@@ -117,26 +121,20 @@ def select_features_rfe(data, clf, scoring='accuracy', seed=1234, n_features=5):
 
 
 if __name__ == '__main__':
-    import pandas as pd
-    import numpy as np
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.neighbors import KNeighborsClassifier
-    from sklearn.ensemble import RandomForestClassifier
 
-    from src.models.train_model import get_features_and_labels
     data_tmp = pd.read_csv('../../data/processed/train_ready.csv', index_col=0)
     seed = 12345
 
-    # clf = LogisticRegression()
+    #clf = LogisticRegression()
     # clf = KNeighborsClassifier(n_neighbors=4)
     clf = RandomForestClassifier(n_estimators=100, random_state=seed)
 
     # pos = list(select_features_efs(data_tmp, clf, scoring='accuracy',n_features=10))
     # features = data_tmp.columns[pos]
 
-    n_fts = 10
-    pos = list(select_features_sfs(data_tmp, clf, scoring='accuracy', n_features=n_fts))
-    features = data_tmp.columns[pos]
+    n_fts = 20
+    #pos = list(select_features_sfs(data_tmp, clf, scoring='accuracy', n_features=n_fts))
+    #features = data_tmp.columns[pos]
 
     pos = list(select_features_rfe(data_tmp, clf, scoring='accuracy', n_features=n_fts))
     features = data_tmp.columns[pos]

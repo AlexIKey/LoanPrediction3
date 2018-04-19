@@ -247,7 +247,8 @@ if __name__ == '__main__':
 
     data_tmp = data_train.copy()
     data_tmp['y'] = y
+    print("Outcome dispersion:\n", data_tmp['y'].value_counts())
 
-    data_tmp.to_csv('../../data/processed/train_ready.csv', index=False)
-    data_test.to_csv('../../data/processed/test_ready.csv', index=False)
+    data_tmp.to_csv('../../data/interim/train_ready.csv', index=False)
+    data_test.to_csv('../../data/interim/test_ready.csv', index=False)
 

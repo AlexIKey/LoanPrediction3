@@ -2,6 +2,24 @@ import pandas as pd
 import numpy as np
 from scipy import interp
 import matplotlib.pyplot as plt
+from src.features.select_features import select_features_efs, select_features_sfs, select_features_rfe
+from sklearn import model_selection
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+# -----------------------------------------------------------
+import os
+mingw_path = 'C:\\Program Files\\Git\\mingw64\\bin'
+os.environ['PATH'] = mingw_path + ';' + os.environ['PATH']
+# -----------------------------------------------------------
+from xgboost import XGBClassifier
+from lightgbm import LGBMClassifier
+
+
 
 def get_features_and_labels(frame, seed=None):
     '''
@@ -24,7 +42,7 @@ def get_features_and_labels(frame, seed=None):
 
     # Use 80% of the data for training; test against the rest
     from sklearn.model_selection import train_test_split
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=seed)
 
     # sklearn.pipeline.make_pipeline could also be used to chain
     # processing and classification into a black box, but here we do
@@ -65,16 +83,6 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
 
     # Spot Check Algorithms
 
-    from sklearn import model_selection
-    from sklearn.tree import DecisionTreeClassifier
-    from sklearn.neighbors import KNeighborsClassifier
-    from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-    from sklearn.naive_bayes import GaussianNB
-    from sklearn.svm import SVC
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.ensemble import RandomForestClassifier
-    from xgboost import XGBClassifier
-    from lightgbm import LGBMClassifier
 
 
     # We will calculate the P-R curve for each classifier
@@ -214,6 +222,8 @@ def plot(title, results):
     plt.xlabel('fpr')
     plt.ylabel('tpr')
     plt.legend(loc='lower right', fontsize=10)
+    plt.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',
+                 label='Luck', alpha=.8)
 
     # Let matplotlib improve the layout
     plt.tight_layout()
@@ -245,23 +255,27 @@ def plot(title, results):
 
 
 if __name__ == "__main__":
-    # import pandas as pd
-    # import numpy as np
-    # import matplotlib.pyplot as plt
 
-    # -----------------------------------------------------------
-    import os
-    mingw_path = 'C:\\Program Files\\Git\\mingw64\\bin'
-    os.environ['PATH'] = mingw_path + ';' + os.environ['PATH']
-    # -----------------------------------------------------------
+
     seed = 1234567
     data_tmp = pd.read_csv('../../data/processed/train_ready.csv', index_col=0)
 
-    trainSet, testSet, y_train, y_test = get_features_and_labels(data_tmp, seed=seed)
+    features_idx = list(select_features_rfe(data_tmp, RandomForestClassifier(n_estimators=100, random_state=seed),
+                                            seed=seed, n_features=20))
+    y=data_tmp['y']
+
+    data_short = data_tmp.iloc[:, features_idx]
+    data_short['y'] = y
+
+    trainSet, testSet, y_train, y_test = get_features_and_labels(data_short, seed=seed)
+    print(trainSet.shape)
+
+
 
     # Evaluate multiple classifiers on the data
     print("Evaluating classifiers")
     details_cv, results_cv, results_test = list(eval_classifiers(trainSet, testSet, y_train, y_test, seed=seed))
+
     # indexing results
     import operator
     results_cv.sort(key=operator.itemgetter(3), reverse=True)
@@ -269,8 +283,7 @@ if __name__ == "__main__":
     # Display the results
     print("Plotting the results")
 
-    #fig = plt.figure(figsize=(10, 25))
-    fig, axis = plt.subplots(nrows=round(len(details_cv)/2), ncols=2, figsize=(10, 25))
+    fig, axis = plt.subplots(nrows=round(len(details_cv)/2), ncols=2, figsize=(10, 27))
     axis = axis.flatten()
     i = 0
     for detail_cv in details_cv:
