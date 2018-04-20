@@ -25,7 +25,7 @@ def make_features(df):
     df.apply(lambda x: sum(x.isnull()),axis=0)
 
     # Drop features
-    df = drop_correlated_features(df)
+    df = drop_correlated_features(df, corr_treshhold=0.8)
     print('Finish ', make_features.__name__)
 
     return df
@@ -239,7 +239,7 @@ if __name__ == '__main__':
 
     # Drop features
     # drop correlated features
-    df = drop_correlated_features(df)
+    df = drop_correlated_features(df, corr_treshhold=0.8)
 
     data_train = df[df.index.isin(df_train.index)]
     data_test = df[df.index.isin(df_test.index)]

@@ -21,7 +21,7 @@ from lightgbm import LGBMClassifier
 
 
 
-def get_features_and_labels(frame, seed=None):
+def get_features_and_labels(frame, test_volume=0.33, seed=None):
     '''
     Transforms and scales the input data and returns numpy arrays for
     training and testing inputs and targets.
@@ -42,7 +42,8 @@ def get_features_and_labels(frame, seed=None):
 
     # Use 80% of the data for training; test against the rest
     from sklearn.model_selection import train_test_split
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=seed)
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_volume, random_state=seed)
 
     # sklearn.pipeline.make_pipeline could also be used to chain
     # processing and classification into a black box, but here we do
@@ -262,12 +263,12 @@ if __name__ == "__main__":
 
     features_idx = list(select_features_rfe(data_tmp, RandomForestClassifier(n_estimators=100, random_state=seed),
                                             seed=seed, n_features=20))
-    y=data_tmp['y']
+    y = data_tmp['y']
 
     data_short = data_tmp.iloc[:, features_idx]
     data_short['y'] = y
 
-    trainSet, testSet, y_train, y_test = get_features_and_labels(data_short, seed=seed)
+    trainSet, testSet, y_train, y_test = get_features_and_labels(data_short, test_size=1, seed=seed)
     print(trainSet.shape)
 
 
