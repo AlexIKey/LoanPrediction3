@@ -11,6 +11,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
 # -----------------------------------------------------------
 import os
 mingw_path = 'C:\\Program Files\\Git\\mingw64\\bin'
@@ -103,6 +104,7 @@ def eval_classifiers(X_train, X_test, y_train, y_test, seed=None):
     models.append(('RF', RandomForestClassifier()))
     models.append(('XGB', XGBClassifier()))
     models.append(('LGB', LGBMClassifier(verbose=-1)))
+    models.append(('MLP', MLPClassifier()))
 
 
     # evaluate each model in turn
@@ -259,7 +261,7 @@ if __name__ == "__main__":
 
 
     seed = 1234567
-    data_tmp = pd.read_csv('../../data/processed/train_ready.csv', index_col=0)
+    data_tmp = pd.read_csv('../../data/interim/train_ready.csv', index_col=0)
 
     features_idx = list(select_features_rfe(data_tmp, RandomForestClassifier(n_estimators=100, random_state=seed),
                                             seed=seed, n_features=20))
@@ -268,7 +270,7 @@ if __name__ == "__main__":
     data_short = data_tmp.iloc[:, features_idx]
     data_short['y'] = y
 
-    trainSet, testSet, y_train, y_test = get_features_and_labels(data_short, test_size=1, seed=seed)
+    trainSet, testSet, y_train, y_test = get_features_and_labels(data_short, test_volume=0.33, seed=seed)
     print(trainSet.shape)
 
 
@@ -283,8 +285,9 @@ if __name__ == "__main__":
     results_test.sort(key=operator.itemgetter(3), reverse=True)
     # Display the results
     print("Plotting the results")
-
-    fig, axis = plt.subplots(nrows=round(len(details_cv)/2), ncols=2, figsize=(10, 27))
+    n, d = divmod(len(details_cv), 2)
+    n = n + 1 if d > 0 else n
+    fig, axis = plt.subplots(nrows=n, ncols=2, figsize=(10, n*5))
     axis = axis.flatten()
     i = 0
     for detail_cv in details_cv:
